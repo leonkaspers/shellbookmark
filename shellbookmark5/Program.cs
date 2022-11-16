@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-
 namespace shellbookmark5
 {
     //Handles the Saving and Reading of saved Folders and tries to jump to them
@@ -16,7 +15,7 @@ namespace shellbookmark5
             string bookmarkPath = "";
             string bookmarkAction = "";
             string fileJson;
-            string jsonPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkData.json";
+            string jsonPath = "shellbookmarkData.json";
             List<Folder> folderList = new List<Folder>();
 
             //check if given argumentes ar correct and valid
@@ -43,15 +42,13 @@ namespace shellbookmark5
             //imports the saved folders from a json file, creates objects of those folders and saves them to a list
             try
             {
-
                 string jsonData = File.ReadAllText(jsonPath);
                 folderList.AddRange(JsonSerializer.Deserialize<IList<Folder>>(jsonData));
             }
             catch (Exception)
             {
-
+                Console.WriteLine("json File corrupted or not available.");
             }
-            //Setup to determine which console opened the programm, stolen from: https://stackoverflow.com/questions/27022501/determine-whether-console-application-is-run-from-command-line-or-powershell
 
             //Main Switch
             switch (bookmarkAction)
@@ -106,12 +103,6 @@ namespace shellbookmark5
                             string command = "/d \"" + folderList[i].folderPath + "\"";
                             File.WriteAllText("shellbookmarkBatchData.txt", command);
 
-                            //Process.Start("cmd.exe", command);
-
-                            //Directory.SetCurrentDirectory(folderList[i].folderPath);
-
-                            //ProcessStartInfo startInfo = new ProcessStartInfo();
-
                             doesFolderExist = true;
                         }
                     }
@@ -119,7 +110,7 @@ namespace shellbookmark5
                     if (doesFolderExist == false)
                     {
                         Console.WriteLine("This bookmark does not exist.");
-                        File.WriteAllText(@"C:\Users\uif54017\Documents\Kai Aufgaben\shellbookmarkData\shellbookmarkBatchData.txt", "");
+                        File.WriteAllText("shellbookmarkBatchData.txt", "");
                     }
 
                     break;
@@ -162,7 +153,7 @@ namespace shellbookmark5
 
                 //if the command was not recognized
                 default:
-                    Console.WriteLine("Please enter a valid command. For help please enter \"shellbookmark5 help\".");
+                    Console.WriteLine("Please enter a valid command. For help please enter \"shellbookmark help\".");
                     break;
             }
         }
