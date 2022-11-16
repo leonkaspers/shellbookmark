@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+
 
 namespace shellbookmark5
 {
@@ -103,8 +103,10 @@ namespace shellbookmark5
                     {
                         if (folderList[i].folderName == bookmarkName)
                         {
-                            string command = "/k cd /d \"" + folderList[i].folderPath + "\"";
-                            Process.Start("cmd.exe", command);
+                            string command = "/d \"" + folderList[i].folderPath + "\"";
+                            File.WriteAllText("shellbookmarkBatchData.txt", command);
+
+                            //Process.Start("cmd.exe", command);
 
                             //Directory.SetCurrentDirectory(folderList[i].folderPath);
 
@@ -117,6 +119,7 @@ namespace shellbookmark5
                     if (doesFolderExist == false)
                     {
                         Console.WriteLine("This bookmark does not exist.");
+                        File.WriteAllText(@"C:\Users\uif54017\Documents\Kai Aufgaben\shellbookmarkData\shellbookmarkBatchData.txt", "");
                     }
 
                     break;
@@ -126,7 +129,9 @@ namespace shellbookmark5
                     for (int i = 0; i < folderList.Count; i++)
                     {
                         Console.WriteLine(" {0} : {1} - {2}", i, folderList[i].folderName, folderList[i].folderPath);
+
                     }
+
                     break;
 
                 //delete one specific bookmark
