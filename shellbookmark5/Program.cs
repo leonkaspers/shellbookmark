@@ -15,8 +15,20 @@ namespace shellbookmark5
             string bookmarkPath = "";
             string bookmarkAction = "";
             string fileJson;
-            string jsonPath = "shellbookmarkData.json";
             List<Folder> folderList = new List<Folder>();
+
+
+            //change the file paths to your desired system location. You don't have to change the file names.
+            //To makes thing easier use the same path for every file. 
+            //The folder where the files are saved must be in the PATH variable.
+            //change jsonPath to the location you want to save your bookmarks. Only absolute paths work.
+            string jsonPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkData.json";
+            //change dataPath to the location where you you want the data handling to happen. Only absolute paths work.
+            string dataPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkBatchData.txt";
+            //change batchPath to the location where you want the batch file, which handles the exection, to be saved.
+            //Don't change the name.
+            string batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmark.bat";
+
 
             //check if given argumentes ar correct and valid
             try
@@ -47,12 +59,18 @@ namespace shellbookmark5
             }
             catch (Exception)
             {
-                Console.WriteLine("json File corrupted or not available.");
+                Console.WriteLine("json File corrupted or not available. A new file will be created.");
             }
 
             //Main Switch
             switch (bookmarkAction)
             {
+                case "setup":
+                    string batchFile = "@echo off\n\nset arg1=%1\nset arg2=%2\n\nstart /w /b shellbookmark5 %arg1% %arg2%\n\nif %arg1% == go set /p bookmark =< \"" + dataPath + "\"\nif %arg1% == go cd %bookmark%";
+
+                    File.WriteAllText(batchPath, batchFile);
+                    break;
+
                 //saves the curren wdr witch given shortcut to the jsonfile
                 case "save":
                     bool alreadyExists = false;
@@ -101,7 +119,7 @@ namespace shellbookmark5
                         if (folderList[i].folderName == bookmarkName)
                         {
                             string command = "/d \"" + folderList[i].folderPath + "\"";
-                            File.WriteAllText("shellbookmarkBatchData.txt", command);
+                            File.WriteAllText(dataPath, command);
 
                             doesFolderExist = true;
                         }
@@ -110,7 +128,8 @@ namespace shellbookmark5
                     if (doesFolderExist == false)
                     {
                         Console.WriteLine("This bookmark does not exist.");
-                        File.WriteAllText("shellbookmarkBatchData.txt", "");
+                        File.WriteAllText(dataPath
+                            , "");
                     }
 
                     break;
