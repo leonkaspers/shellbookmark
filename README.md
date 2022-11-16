@@ -15,12 +15,18 @@ It is best to save all the files in the same folder, the one where the .exe is s
 Unfortunately, relative paths do not work, because the actual working directory of the .exe is different depending on the directory in which the program is opened, so that the relative paths would constantly point to different locations, which is why absolute paths are necessary.
 
 1. Download the repository from [leonkaspers/shellbookmark: Little programm to save cmd paths (github.com)](https://github.com/leonkaspers/shellbookmark)
-2. Open the _Program.cs_ file and edit the jsonPath Variable to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen.
+2. Open the _Program.cs_ (line 21 an onward) file and edit the jsonPath Variable to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen.
 ```
+//change the file paths to your desired system location. You don't have to change the file names.
+//To makes thing easier use the same path for every file. 
+//The folder where the files are saved must be in the PATH variable.
 //change jsonPath to the location you want to save your bookmarks. Only absolute paths work.
 string jsonPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkData.json";
 //change dataPath to the location where you you want the data handling to happen. Only absolute paths work.
 string dataPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkBatchData.txt";
+//change batchPath to the location where you want the batch file, which handles the exection, to be saved.
+//Don't change the name.
+string batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmark.bat";
 ```
 
 3. Build the _shellbookmark_ Solution
