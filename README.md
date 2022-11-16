@@ -30,7 +30,7 @@ string batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmar
 ```
 
 3. Build the _shellbookmark_ Solution
-4. run `shellbookmark5 setup` command in cmd (it creates the necessary batch file for you)
+4. run `shellbookmark5 setup` (the 5 is not a typo) command in cmd (it creates the necessary batch file for you)
 
 If you have completed all off the above steps and there is no bug or error or other dependency I overlooked, _shellbookmark_ should work now.
 
