@@ -66,7 +66,7 @@ namespace shellbookmark5
             switch (bookmarkAction)
             {
                 case "setup":
-                    string batchFile = "@echo off\n\nset arg1=%1\nset arg2=%2\n\nstart /w /b shellbookmark5 %arg1% %arg2%\n\nif %arg1% == go set /p bookmark =< \"" + dataPath + "\"\nif %arg1% == go cd %bookmark%";
+                    string batchFile = "@echo off\n\nset arg1=%1\nset arg2=%2\n\nstart /w /b shellbookmark5 %arg1% %arg2%\n\nif %arg1% == go set /p bookmark=<\"" + dataPath + "\"\nif %arg1% == go cd %bookmark%";
 
                     File.WriteAllText(batchPath, batchFile);
                     break;

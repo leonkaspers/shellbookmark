@@ -2,7 +2,7 @@
   "profiles": {
     "shellbookmark5": {
       "commandName": "Project",
-      "commandLineArgs": "go Hanoi"
+      "commandLineArgs": "go SAP"
     }
   }
 }
