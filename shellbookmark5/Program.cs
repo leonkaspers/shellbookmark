@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace shellbookmark5
 {
-    //Handles the Saving and Reading of saved Folders and tries to jump to them
+    //Handles the user input
     class Program
     {
         static void Main(string[] args)
