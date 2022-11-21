@@ -15,7 +15,7 @@ It is best to save all the files in the same folder, the one where the .exe is s
 Unfortunately, relative paths do not work, because the actual working directory of the .exe is different depending on the directory in which the program is opened, so that the relative paths would constantly point to different locations, which is why absolute paths are necessary.
 
 1. Clone the repository
-2. Open the _Setup.cs_ file (line 13 an onward) and edit the `jsonPath Variable` to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen. Additionally specifie where you want to store your batch file (step 4).
+2. Open the _Setup.cs_ file (line 13 an onward) and edit the `jsonPath Variable` to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen. Additionally specify where you want to store your batch file (step 4).
 
 ```c#
 //change the file paths to your desired system location. You don't have to change the file names.
@@ -25,7 +25,7 @@ Unfortunately, relative paths do not work, because the actual working directory 
 string jsonPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkData.json";
 //change dataPath to the location where you you want the data handling to happen. Only absolute paths work.
 string dataPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmarkBatchData.txt";
-//change batchPath to the location where you want the batch file, which handles the exection, to be saved.
+//change batchPath to the location where you want the batch file, which handles the execution of the program, to be saved.
 //Don't change the name.
 string batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmark.bat";
 ```
@@ -37,14 +37,18 @@ If you have completed all off the above steps and there is no bug or error or ot
 
 ## How to use shellbookmark
 
-You can use _shellbookmark_ from every folder using cmd. Just type shellbookmark followed by one of the following commands:
+You can use _shellbookmark_ from every folder using cmd. Just type `shellbookmark` followed by one of the following commands:
 
-- save [bookmark name]: saves current working directory under the name of [bookmark name]
-- go [bookmark name]: changes the working directory to the with [bookmark name] associated folder
-- list: lists all saved bookmarks with an index number
-- delete[index]: deletes the specified bookmark
-- deleteall: deletes all saved bookmarks
-- help: shows the help text
+- `save` [bookmark name]: saves current working directory under the name of [bookmark name]
+- `go` (2 options)
+  - `go [bookmark name]`: changes the working directory to the with [bookmark name] associated folder
+  - `go [bookmark index]`: changes the working directory to the with [bookmark index] associated folder (you can look up the index using the `list` command)
+- `list`: lists all saved bookmarks with an index number
+- `delete` (2 options)
+  - `delete [bookmark name]`: deletes the specified bookmark using it's name
+  - `delete [bookmark index]`: deletes the specified bookmark using it's index (you can look up the index using the `list` command)
+- `deleteall`: deletes all saved bookmarks
+- `help`: shows the help text
 
 ## Examples
 
