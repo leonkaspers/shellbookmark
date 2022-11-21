@@ -4,7 +4,7 @@ namespace shellbookmark5
 {
     public class Setup
     {
-        public string jsonPath { get; private set; } 
+        public string jsonPath { get; private set; }
         public string dataPath { get; private set; }
         string batchPath;
 
@@ -23,7 +23,7 @@ namespace shellbookmark5
             //Don't change the name.
             batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmark5\shellbookmark5\bin\Debug\net5.0\shellbookmark.bat";
         }
-        
+
         public void createBatchFile()
         {
             string batchFile = "@echo off\n\nset arg1=%1\nset arg2=%2\n\nstart /w /b shellbookmark5 %arg1% %arg2%\n\nif %arg1% == go set /p bookmark=<\"" + dataPath + "\"\nif %arg1% == go cd %bookmark%";

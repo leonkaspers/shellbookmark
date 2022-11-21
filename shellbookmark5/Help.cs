@@ -29,12 +29,13 @@ namespace shellbookmark5
             }
         }
 
-        public static void openHelp() {
+        public static void openHelp()
+        {
             Process.Start(new ProcessStartInfo
-                {
-                    FileName = "https://github.com/leonkaspers/shellbookmark#how-to-use-shellbookmark",
-                    UseShellExecute = true
-                });
+            {
+                FileName = "https://github.com/leonkaspers/shellbookmark#how-to-use-shellbookmark",
+                UseShellExecute = true
+            });
         }
     }
 }
