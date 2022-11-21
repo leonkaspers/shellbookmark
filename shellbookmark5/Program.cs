@@ -78,7 +78,7 @@ namespace shellbookmark5
 
                 //show the help
                 case "help":
-                    Console.WriteLine("Help:\nThis programm can save your current Working Directory using a shortcut. You then can access that Directory using the shortcut.\nAvailable Commands:\n -save[shortcut]: save current working directory under the name of[shortcut]\n -go[shortcut]: changes the working directory to the with[shortcut] associated folder\n -list: lists all saved folders\n -delete[index]: deletes the specified shortcut\n -deleteall: deletes all saved shortcuts\n -help: shows the help text");
+                    Help.help();
                     break;
 
                 //if the command was not recognized
