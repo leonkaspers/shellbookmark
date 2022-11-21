@@ -29,7 +29,7 @@ namespace shellbookmark5
         }
 
 
-        public void save (string bookmarkName, string bookmarkPath)
+        public void save(string bookmarkName, string bookmarkPath)
         {
             bool alreadyExists = false;
 
@@ -67,7 +67,7 @@ namespace shellbookmark5
             }
         }
 
-        public void goName (string bookmarkName)
+        public void goName(string bookmarkName)
         {
             bool doesFolderExist = false;
 
@@ -89,16 +89,55 @@ namespace shellbookmark5
             }
         }
 
+        public void goIndex(int index)
+        {
+            if (folderList.Count >= index && index >= 0)
+            {
+                string command = "/d \"" + folderList[index].folderPath + "\"";
+                File.WriteAllText(setup.dataPath, command);
+            }
+            else
+            {
+                Console.WriteLine("This bookmark does not exist (index out of range). Only inputs between 0 and {0} are valid.", folderList.Count);
+                File.WriteAllText(setup.dataPath, "");
+            }
+        }
+
         public void list()
         {
             for (int i = 0; i < folderList.Count; i++)
             {
                 Console.WriteLine(" {0} : {1} - {2}", i, folderList[i].folderName, folderList[i].folderPath);
-
             }
         }
 
-        public void deleteIndex (int index)
+        public void deleteName (string bookmarkName)
+        {
+            bool doesFolderExist = false;
+
+            for (int i = 0; i < folderList.Count; i++)
+            {
+                if (folderList[i].folderName == bookmarkName)
+                {
+                    Console.WriteLine(" {0} - {1} successfully deleted.", folderList[i].folderName, folderList[i].folderPath);
+                    folderList.RemoveAt(i);
+
+                    var opt1 = new JsonSerializerOptions() { WriteIndented = true };
+                    fileJson = JsonSerializer.Serialize<IList<Bookmark>>(folderList, opt1);
+
+                    File.WriteAllText(setup.jsonPath, fileJson);
+
+                    doesFolderExist = true;
+                }
+            }
+
+            if (doesFolderExist == false)
+            {
+                Console.WriteLine("This bookmark does not exist.");
+            }
+        }
+
+        public void deleteIndex(int index)
         {
             Console.WriteLine(" {0} - {1} successfully deleted.", folderList[index].folderName, folderList[index].folderPath);
             folderList.RemoveAt(index);

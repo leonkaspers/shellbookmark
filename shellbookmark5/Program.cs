@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace shellbookmark5
 {
@@ -14,6 +15,7 @@ namespace shellbookmark5
             string bookmarkName = "";
             string bookmarkPath = "";
             string bookmarkAction = "";
+            int bookmarkIndex = -1;
 
             //creating objects
             Setup setup = new Setup();
@@ -40,6 +42,15 @@ namespace shellbookmark5
                 return;
             }
 
+            //Bookmark or Index
+            string pattern = "^[0-9]+$";
+            Regex rg = new Regex(pattern);
+            if (rg.IsMatch(bookmarkName) == true)
+            {
+                bookmarkIndex = Convert.ToInt32(bookmarkName);
+                bookmarkAction = bookmarkAction + "I";
+            }
+
             //Main Switch
             switch (bookmarkAction)
             {
@@ -50,23 +61,29 @@ namespace shellbookmark5
                 //saves the curren wdr witch given shortcut to the jsonfile
                 case "save":
                     data.save(bookmarkName, bookmarkPath);
-
                     break;
 
-                //change the wd to the saved folder
+                //change the wd to the saved folder using name
                 case "go":
                     data.goName(bookmarkName);
+                    break;
 
+                //change the wd to the saved folder using index
+                case "goI":
+                    data.goIndex(bookmarkIndex);
                     break;
 
                 //show all saved shortcuts
                 case "list":
                     data.list();
-
                     break;
 
-                //delete one specific bookmark
                 case "delete":
+                    data.deleteName(bookmarkName);
+                    break;
+
+                //delete one specific bookmark using Index
+                case "deleteI":
                     int index = Convert.ToInt32(bookmarkName);
                     data.deleteIndex(index);
                     break;
