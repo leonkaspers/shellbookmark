@@ -14,7 +14,6 @@ namespace shellbookmark5
             string bookmarkName = "";
             string bookmarkPath = "";
             string bookmarkAction = "";
-            string fileJson;
 
             //creating objects
             Setup setup = new Setup();
