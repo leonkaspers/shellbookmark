@@ -5,7 +5,7 @@ namespace shellbookmark5
 {
     public static class Help
     {
-        public static void help()
+        public static void showHelp()
         {
             Console.WriteLine("You can use _shellbookmark_ from every folder using cmd. Just type shellbookmark followed by one of the following commands:\n");
             Console.WriteLine("- save [bookmark name]: saves current working directory under the name of [bookmark name]");
@@ -23,10 +23,18 @@ namespace shellbookmark5
             {
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = "https://github.com/leonkaspers/shellbookmark",
+                    FileName = "https://github.com/leonkaspers/shellbookmark#how-to-use-shellbookmark",
                     UseShellExecute = true
                 });
             }
+        }
+
+        public static void openHelp() {
+            Process.Start(new ProcessStartInfo
+                {
+                    FileName = "https://github.com/leonkaspers/shellbookmark#how-to-use-shellbookmark",
+                    UseShellExecute = true
+                });
         }
     }
 }

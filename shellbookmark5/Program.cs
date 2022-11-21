@@ -95,7 +95,7 @@ namespace shellbookmark5
 
                 //show the help
                 case "help":
-                    Help.help();
+                    Help.openHelp();
                     break;
 
                 //if the command was not recognized
