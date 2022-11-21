@@ -1,21 +1,25 @@
-# shellbookmark Documentation
+# `shellbookmark` Documentation
 
 ## Overview
 
-This program can save your current Working Directory in cmd.exe using a bookmark. You then can access that Directory using the saved bookmark. You can add as many bookmarks as you want.
+This program can save your current Working Directory in _cmd.exe_ using a bookmark. You then can access that Directory using the saved bookmark. You can add as many bookmarks as you want.
 
 The bookmarks are saved using .json file. You can list and delete your bookmarks using the appropriate commands.
 
 ## Installation Guide
 
-This installation guide is quite silly, if there are any suggestions on how to make the installation smarter and safer, then keep them coming.
+### Good to know
 
-It is best to save all the files in the same folder, the one where the .exe is stored that will be created at step 3. This folder must be entered in the "Path" system variable.
+_This installation guide is quite silly, if there are any suggestions on how to make the installation smarter and safer, then keep them coming._
+
+It is best to save all the files in the same folder, the one where the _.exe_ is stored that will be created at step 3 (building the solution). This folder must be entered in the [`Path`](https://www.computerhope.com/issues/ch000549.htm) system variable.
 
 Unfortunately, relative paths do not work, because the actual working directory of the .exe is different depending on the directory in which the program is opened, so that the relative paths would constantly point to different locations, which is why absolute paths are necessary.
 
+### How to install `shellbookmark`:
+
 1. Clone the repository
-2. Open the _Setup.cs_ file (line 13 an onward) and edit the `jsonPath Variable` to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen. Additionally specify where you want to store your batch file (step 4).
+2. Open the _Setup.cs_ file (line 13 an onward) and edit the `jsonPath` variable to represent the path where you want to save your bookmarks and the `dataPath` variable to represent the path where you want the data handling to happen. Additionally specify where you want to store your batch file by editing the `batchPath` variable.
 
 ```c#
 //change the file paths to your desired system location. You don't have to change the file names.
@@ -31,9 +35,9 @@ string batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmar
 ```
 
 3. Build the _shellbookmark_ Solution
-4. run `shellbookmark5 setup` (the 5 is not a typo) command in cmd (it creates the necessary batch file for you)
+4. run `shellbookmark5 setup` (the 5 is not a typo) command in _cmd_ (it creates the necessary batch file for you)
 
-If you have completed all off the above steps and there is no bug or error or other dependency I overlooked, _shellbookmark_ should work now.
+If you have completed all off the above steps and there is no bug or error or other dependency I overlooked, `shellbookmark` should work now.
 
 ## How to use shellbookmark
 
