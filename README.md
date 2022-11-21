@@ -1,12 +1,12 @@
+# shellbookmark Documentation
 
-
-# Overview
+## Overview
 
 This program can save your current Working Directory in cmd.exe using a bookmark. You then can access that Directory using the saved bookmark. You can add as many bookmarks as you want.
 
 The bookmarks are saved using .json file. You can list and delete your bookmarks using the appropriate commands.
 
-# Installation Guide
+## Installation Guide
 
 This installation guide is quite silly, if there are any suggestions on how to make the installation smarter and safer, then keep them coming.
 
@@ -14,9 +14,10 @@ It is best to save all the files in the same folder, the one where the .exe is s
 
 Unfortunately, relative paths do not work, because the actual working directory of the .exe is different depending on the directory in which the program is opened, so that the relative paths would constantly point to different locations, which is why absolute paths are necessary.
 
-1. Download the repository from [leonkaspers/shellbookmark: Little programm to save cmd paths (github.com)](https://github.com/leonkaspers/shellbookmark)
-2. Open the _Program.cs_ (line 21 an onward) file and edit the jsonPath Variable to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen. Additionally specifie where you want to store your batch file (step 4).
-```
+1. Clone the repository
+2. Open the _Setup.cs_ file (line 13 an onward) and edit the `jsonPath Variable` to represent the path where you want to save your bookmarks and the dataPath Variable to represent the path where you want the data handling to happen. Additionally specifie where you want to store your batch file (step 4).
+
+```c#
 //change the file paths to your desired system location. You don't have to change the file names.
 //To makes thing easier use the same path for every file. 
 //The folder where the files are saved must be in the PATH variable.
@@ -34,7 +35,7 @@ string batchPath = @"C:\Users\uif54017\Documents\Visual Studio 2019\shellbookmar
 
 If you have completed all off the above steps and there is no bug or error or other dependency I overlooked, _shellbookmark_ should work now.
 
-# How to use shellbookmark
+## How to use shellbookmark
 
 You can use _shellbookmark_ from every folder using cmd. Just type shellbookmark followed by one of the following commands:
 
@@ -45,9 +46,9 @@ You can use _shellbookmark_ from every folder using cmd. Just type shellbookmark
 - deleteall: deletes all saved bookmarks
 - help: shows the help text
 
-# Examples
+## Examples
 
-## Create bookmark
+### Create bookmark
 
 ```
 C:\Users\uif54017\Documents>shellbookmark save 
@@ -55,14 +56,14 @@ Documents
 Path saved successfully.
 ```
 
-## Jump to bookmark
+### Jump to bookmark
 
 ```
 C:\Users\uif54017\Documents\SAP>shellbookmark go Documents
 C:\Users\uif54017\Documents>
 ```
 
-## List bookmarks
+### List bookmarks
 
 ```
 C:\Users\uif54017\Documents\SAP>shellbookmark list       
@@ -70,7 +71,7 @@ C:\Users\uif54017\Documents\SAP>shellbookmark list
  1 : Documents - C:\Users\uif54017\Documents 
 ```
 
-## Delete bookmark
+### Delete bookmark
 
 ```
 C:\Users\uif54017\Documents\SAP\SAP GUI>shellbookmark delete 0
