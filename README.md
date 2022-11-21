@@ -50,7 +50,7 @@ You can use _shellbookmark_ from every folder using cmd. Just type shellbookmark
 
 ### Create bookmark
 
-```
+```bat
 C:\Users\uif54017\Documents>shellbookmark save 
 Documents
 Path saved successfully.
@@ -58,14 +58,14 @@ Path saved successfully.
 
 ### Jump to bookmark
 
-```
+```bat
 C:\Users\uif54017\Documents\SAP>shellbookmark go Documents
 C:\Users\uif54017\Documents>
 ```
 
 ### List bookmarks
 
-```
+```bat
 C:\Users\uif54017\Documents\SAP>shellbookmark list       
  0 : User - C:\Users\uif54017
  1 : Documents - C:\Users\uif54017\Documents 
@@ -73,7 +73,7 @@ C:\Users\uif54017\Documents\SAP>shellbookmark list
 
 ### Delete bookmark
 
-```
+```bat
 C:\Users\uif54017\Documents\SAP\SAP GUI>shellbookmark delete 0
  User - C:\Users\uif54017 successfully deleted.
 
