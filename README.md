@@ -43,7 +43,7 @@ If you have completed all off the above steps and there is no bug or error or ot
 
 You can use _shellbookmark_ from every folder using cmd. Just type `shellbookmark` followed by one of the following commands:
 
-- `save` [bookmark name]: saves current working directory under the name of [bookmark name]
+- `save [bookmark name]`: saves current working directory under the name of [bookmark name]
 - `go` (2 options)
   - `go [bookmark name]`: changes the working directory to the with [bookmark name] associated folder
   - `go [bookmark index]`: changes the working directory to the with [bookmark index] associated folder (you can look up the index using the `list` command)
