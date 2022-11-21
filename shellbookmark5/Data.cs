@@ -24,7 +24,7 @@ namespace shellbookmark5
             }
             catch (Exception)
             {
-                Console.WriteLine("json File corrupted or not available. A new file will be created.");
+                Console.WriteLine("JSON File corrupted or not available. A new file will be created.");
             }
         }
 
@@ -38,14 +38,14 @@ namespace shellbookmark5
             {
                 if (item.folderName == bookmarkName)
                 {
-                    Console.WriteLine("this folder name already exists, please rename your folder");
+                    Console.WriteLine("This bookmark already exists, please rename your bookmark");
                     alreadyExists = true;
 
                 }
 
                 if (item.folderPath == bookmarkPath)
                 {
-                    Console.WriteLine("this path already exists under the bookmark {0}.", item.folderName);
+                    Console.WriteLine("This path already exists under the bookmark {0}.", item.folderName);
                     alreadyExists = true;
                     break;
                 }
