@@ -92,7 +92,7 @@ namespace shellbookmark5
 
                 //show the help
                 case "help":
-                    Help.openHelp();
+                    Help.help();
                     break;
 
                 //if the command was not recognized
